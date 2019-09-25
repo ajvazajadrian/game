@@ -115,30 +115,28 @@ const fg = {
 
 //bird
 const bird = {
-  animation: [
-    { sX: 276, sY: 112 },
-    { sX: 276, sY: 139 },
-    { sX: 276, sY: 164 },
-    { sX: 276, sY: 139 }
-  ],
+
+  sX: 276,
+  sY: 112 ,
   x: 50,
-  y: 150,
-  w: 34,
-  h: 26,
+  y: 190,
+  w: 36,
+  h: 55,
 
   frame: 0,
+  
 
   gravity: 0.25,
   jump: 4.6,
   speed: 0,
-  rotation: 0,
-  radius: 12,
+ 
+  radius: 2,
 
   draw: function() {
-    let bird = this.animation[this.frame];
+    
     ctx.save();
     ctx.translate(this.x, this.y);
-    ctx.rotate(this.rotation);
+   
     ctx.drawImage(
       sprite,
       bird.sX,
@@ -163,11 +161,11 @@ const bird = {
     // incrementing frame +1
     this.frame += frames % this.period === 0 ? 1 : 0;
     // if frames goes to 4 we need start from 0
-    this.frame = this.frame % this.animation.length;
+   
 
     if (state.current === state.getReady) {
       this.y = 150; // reset position of bird
-      this.rotation = 0 * degree;
+   
     } else {
       this.speed += this.gravity;
       this.y += this.speed;
@@ -252,7 +250,7 @@ const pipes = {
   },
   w: 53,
   h: 400,
-  gap: 85,
+  gap: 100,
   maxYPos: -150,
   dX: 2,
 
